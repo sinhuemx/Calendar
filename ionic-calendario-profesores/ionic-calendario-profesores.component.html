@@ -1,0 +1,177 @@
+<ion-header>
+  <ion-toolbar style="padding-top: 0;">
+    <ion-grid fixed="true">
+      <ion-row class="ion-align-items-center">
+        <ion-col size="9">
+        </ion-col>
+        <ion-col size="3" class="ion-text-right">
+          <ion-buttons>
+            <ion-button (click)="today()">
+              <ion-icon slot="icon-only" name="today-outline"></ion-icon>
+            </ion-button>
+            <ion-button (click)="selectView.open()">
+              <ion-icon slot="icon-only" name="eye-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-select
+  #selectView
+  interface="alert"
+  [(ngModel)]="calendar.mode"
+  (ionChange)="changeMode($event.detail.value)"
+  [interfaceOptions]="{ header: 'Selecciona Vista' }"
+  style="display: none"
+>
+  <ion-select-option value="month">Mes</ion-select-option>
+  <ion-select-option value="week">Semana</ion-select-option>
+  <ion-select-option value="day">Día</ion-select-option>
+</ion-select>
+
+<div class="calendar-container" [ngSwitch]="calendar.mode">
+  <div *ngSwitchCase="'month'">
+    <ion-accordion-group value="first">
+      <br>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-title size="large" class="ios title-large hydrated">{{ viewTitle }}</ion-title>
+        </ion-item>
+        <div slot="content" class="ion-padding">
+          <div class="calendar-frame sticky">
+            <br />
+
+            <ion-grid [fixed]="true">
+              <ion-row>
+                <ion-col size="7">
+                  <ion-item>
+                    <ion-label>Mes</ion-label>
+                    <ion-select [(ngModel)]="selectedMonth" (ionChange)="onMonthChange($event)">
+                      <ion-select-option *ngFor="let month of months" [value]="month">{{ month }}</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-col>
+                <ion-col size="5">
+                  <ion-item>
+                    <ion-label>Año</ion-label>
+                    <ion-select [(ngModel)]="selectedYear" (ionChange)="onYearChange($event)">
+                      <ion-select-option *ngFor="let year of years" [value]="year">{{ year }}</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+            <calendar
+            #monthCalendar
+            [ngClass]="{ 'dark-mode': isDarkMode, 'month-mode': calendar.mode === 'month' }"
+            [eventSource]="eventSource"
+            [calendarMode]="'month'"
+            [currentDate]="calendar.currentDate"
+            (onTitleChanged)="onViewTitleChanged($event)"
+            (onTimeSelected)="onTimeSelected($event)"
+            (onEventSelected)="onEventSelected($event)"
+            (onCurrentDateChanged)="onCurrentDateChanged($event)"
+            [monthviewDisplayEventTemplate]="monthviewDisplayEventTemplate"
+            (swipeLeft)="onSwipe('left')"
+            (swipeRight)="onSwipe('right')"
+            [locale]="configCalendar.locale"
+            [allDayLabel]="'Día'"
+            [formatMonthTitle]="'MMMM YYYY'"
+            [formatWeekTitle]="'MMMM \'Week\' W'"
+            [formatDayTitle]="' MMMM dd, yyyy'"
+            [endHour]="configCalendar.endHour"
+            [startHour]="configCalendar.startHour"
+            class=" animacion"
+            id="calendar-1"
+          >
+        </calendar>
+            
+          <ng-template #monthviewDisplayEventTemplate let-view="view" let-row="row" let-col="col">
+            <div class="calendar-date-cell">
+              <ion-icon name="ellipse" class="event-indicator" *ngIf="hasEvent(view.dates[row*7+col].date)"></ion-icon>
+              <ion-icon name="ellipse" class="today-indicator" *ngIf="isToday(view.dates[row*7+col].date)"></ion-icon>
+              <span class="date-number">{{ view.dates[row*7+col].label }}</span>
+            </div>
+          </ng-template>
+          </div>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+
+    <calendar
+      #dayCalendar
+      [eventSource]="selectedDate?.events || eventSource"
+      [calendarMode]="'day'"
+      [currentDate]="selectedDate?.date || calendar.currentDate"
+      (onTitleChanged)="onViewTitleChanged($event)"
+      (onTimeSelected)="onTimeSelected($event)"
+      (onEventSelected)="onEventSelected($event)"
+      (swipeLeft)="onSwipe('left')"
+      (swipeRight)="onSwipe('right')"
+      [locale]="configCalendar.locale"
+      [allDayLabel]="'Día'"
+      [noEventsLabel]="''"
+      [formatDayTitle]="' MMMM dd, yyyy'"
+      [endHour]="configCalendar.endHour"
+      [startHour]="configCalendar.startHour"
+      class="calendar absolute ion-padding animacion"
+      id="calendar-2"
+    >
+    </calendar>
+  </div>
+
+  <div *ngSwitchCase="'week'">
+    <calendar
+      #weekCalendar
+      [eventSource]="eventSource"
+      [calendarMode]="'week'"
+      [currentDate]="calendar.currentDate"
+      (onTitleChanged)="onViewTitleChanged($event)"
+      (onTimeSelected)="onTimeSelected($event)"
+      (onEventSelected)="onEventSelected($event)"
+      (onCurrentDateChanged)="onCurrentDateChanged($event)"
+      (swipeLeft)="onSwipe('left')"
+      (swipeRight)="onSwipe('right')"
+      [locale]="configCalendar.locale"
+      [allDayLabel]="'Semana'"
+      [formatWeekTitle]="'MMMM \'Week\' W'"
+      [endHour]="configCalendar.endHour"
+      [startHour]="configCalendar.startHour"
+      class="calendar absolute ion-padding animacion"
+      id="calendar-3"
+    ></calendar>
+  </div>
+
+  <div *ngSwitchCase="'day'">
+    <calendar
+      #dayCalendar
+      [eventSource]="selectedDate?.events || eventSource"
+      [calendarMode]="'day'"
+      [currentDate]="selectedDate?.date || calendar.currentDate"
+      (onTitleChanged)="onViewTitleChanged($event)"
+      (onTimeSelected)="onTimeSelected($event)"
+      (onEventSelected)="onEventSelected($event)"
+      (swipeLeft)="onSwipe('left')"
+      (swipeRight)="onSwipe('right')"
+      [locale]="configCalendar.locale"
+      [allDayLabel]="'Día'"
+      [noEventsLabel]="''"
+      [formatDayTitle]="' MMMM dd, yyyy'"
+      [endHour]="configCalendar.endHour"
+      [startHour]="configCalendar.startHour"
+      class="calendar absolute ion-padding animacion"
+      id="calendar-4"
+    >
+    </calendar>
+  </div>
+</div>
+
+<modal-calendario-profesores
+  [isOpen]="isModalOpen"
+  [event]="selectedEvent"
+  (closeModal)="closeModal()"
+></modal-calendario-profesores>

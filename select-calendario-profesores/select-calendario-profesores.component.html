@@ -1,0 +1,21 @@
+<ion-grid fixed="true" slot="center">
+  <ion-row class="ion-justify-content-center ion-align-items-center">
+    <ion-col size="auto">
+        <ion-select
+          class="select-placeholder"
+          placeholder="Ejercicios Académicos"
+          label-placement="fixed"
+          interface="action-sheet"
+          *ngIf="dataEjerAcademico$ | async as ejercicios"
+          [ngClass]="isDarkMode ? 'dark-mode' : 'light-mode'"
+        >
+          <ion-select-option
+            *ngFor="let ejercicio of ejercicios"
+            [value]="ejercicio.id"
+          >
+            {{ ejercicio.attributes.descripcionEjercicioAcademico }}
+          </ion-select-option>
+        </ion-select>
+    </ion-col>
+  </ion-row>
+</ion-grid>

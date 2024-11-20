@@ -1,0 +1,70 @@
+<ion-modal [isOpen]="isOpen" (didDismiss)="close()">
+  <ng-container *ngIf="event">
+    <ion-header>
+      <ion-toolbar>
+        <ion-card-title class="title-modal-calendario">Detalles del evento</ion-card-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="close()">Cerrar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-card class="animacion">
+        <ion-card-header>
+          <ion-card-title class="title-modal-event-title">{{ event.title }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list class="animacion" lines="none">
+            <ion-item>
+              <ion-icon slot="start" name="people-outline"></ion-icon>
+              <ion-label>Grupo</ion-label>
+              <ion-note slot="end">{{ event.extendedProps.grupo }}</ion-note>
+            </ion-item>
+            <ion-item>
+              <ion-icon slot="start" name="business-outline"></ion-icon>
+              <ion-label>Edificio</ion-label>
+              <ion-note slot="end">{{
+                event.extendedProps.descripcionEdificio
+              }}</ion-note>
+            </ion-item>
+            <ion-item>
+              <ion-icon slot="start" name="location-outline"></ion-icon>
+              <ion-label>Salón</ion-label>
+              <ion-note slot="end">{{
+                event.extendedProps.claveSalon
+              }}</ion-note>
+            </ion-item>
+            <ion-item>
+              <ion-icon slot="start" name="time-outline"></ion-icon>
+              <ion-label>Inicio de Clase</ion-label>
+              <ion-note slot="end">{{
+                event.extendedProps.horaInicioClase
+              }}</ion-note>
+            </ion-item>
+            <ion-item>
+              <ion-icon slot="start" name="time-outline"></ion-icon>
+              <ion-label>Fin de Clase</ion-label>
+              <ion-note slot="end">{{
+                event.extendedProps.horaFinClase
+              }}</ion-note>
+            </ion-item>
+            <ion-item>
+              <ion-icon slot="start" name="calendar-outline"></ion-icon>
+              <ion-label>Fecha de Inicio</ion-label>
+              <ion-note slot="end">{{
+                event.extendedProps.fechaInicioClase
+              }}</ion-note>
+            </ion-item>
+            <ion-item>
+              <ion-icon slot="start" name="calendar-outline"></ion-icon>
+              <ion-label>Fecha de Fin</ion-label>
+              <ion-note slot="end">{{
+                event.extendedProps.fechaFinClase
+              }}</ion-note>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-content>
+  </ng-container>
+</ion-modal>

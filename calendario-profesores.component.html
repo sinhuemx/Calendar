@@ -1,0 +1,19 @@
+<!-- Header Tec -->
+<!-- <ion-header>
+  <app-mitec-header [title]="'Mi Horario'"></app-mitec-header>
+  <app-header [isActiveBtnPanico]="isActiveBtnPanico" [numBtnPanico]="numBtnPanico"></app-header>
+  </ion-header> -->
+
+  <app-mitec-header [title]="'Horario'" [feedback]="feedback"></app-mitec-header>
+  
+  <!--Refresher-->
+  <ion-content>
+    <!-- <ion-refresher slot="fixed" (ionRefresh)="manejoDeActualizar($event)">
+      <ion-refresher-content pullingIcon="refresh-outline" refreshingSpinner="circles">
+      </ion-refresher-content>
+  </ion-refresher> -->
+  
+
+  <ionic-calendario-profesores #ionicCalendario></ionic-calendario-profesores>
+  
+  </ion-content>

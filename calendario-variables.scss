@@ -1,0 +1,519 @@
+:root {
+  --itesm-color: #2766cb;
+  --itesm-color-1: #1BC0CB;
+  --itesm-color-2: #9747FF;
+  --itesm-color-3: #1f222e;
+  --itesm-color-4: #313649;
+  --itesm-color-5: #17a2b8;
+  --itesm-color-6: #ebedf3;
+  --dark-background-selected: #1BC0CB;
+  --light-text: #000;
+  --light-background-selected: #2766CB;
+  --dark-text: #ffffff;
+
+  --ion-color-primary: #3880ff;
+  --ion-color-primary-rgb: 56, 128, 255;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #3171e0;
+  --ion-color-primary-tint: #4c8dff;
+}
+
+
+
+
+// Colores de base
+$itesm-color-white: #ffffff;
+$itesm-color-black: #000000;
+$itesm-color: #2766cb;
+$itesm-color-1: #1BC0CB;
+$itesm-color-2: #9747FF;
+$itesm-color-3: #1f222e;
+$itesm-color-4: #313649;
+$itesm-color-5: #17a2b8;
+$itesm-color-6: #ebedf3;
+
+// Colores para el modo oscuro
+$dark-background: $itesm-color-3;
+$dark-background1: $itesm-color-4;
+$dark-background-selected: $itesm-color-1;
+$dark-text: $itesm-color-white;
+$dark-background-today: $itesm-color-2;
+$dark-text-today: $itesm-color-white;
+
+// Colores para el modo claro
+$light-background: #d3d7e4;
+$light-background1: #ebedf3;
+$light-background-selected: $itesm-color;
+$light-text: $itesm-color-black;
+$light-background-today: $itesm-color-2;
+$light-text-today: $itesm-color-black;
+
+// Colores para el calendario
+$calendar-table-bg-light: $light-background;
+$calendar-table-text-light: $light-text;
+$calendar-table-bg-dark: $dark-background;
+$calendar-table-text-dark: $dark-text;
+
+// Colores adicionales
+$warning-color: #ffc107;
+$danger-color: #dc3545;
+$success-color: #28a745;
+$info-color: #17a2b8;
+
+
+// Mapa de variables para modo Dark
+$dark-mode: (
+  accordion-background: $dark-background,
+  accordion-text-color: $dark-text,
+  action-sheet-background: $dark-background,
+  action-sheet-text-color: $dark-text,
+  alert-background: $dark-background,
+  alert-radio-label-background: $dark-background,
+  alert-radio-label-selected-text-color: $light-text,
+  alert-radio-label-text-color: $dark-text,
+  alert-text-color: $dark-text,
+  alert-wrapper-background: $dark-background,
+  alert-wrapper-text-color: $dark-text,
+  background-color: $dark-background,
+  badge-background: $dark-background,
+  badge-text-color: $dark-text,
+  button-background: $itesm-color,
+  button-text-color: $dark-text,
+  card-background: $dark-background,
+  card-text-color: $dark-text,
+  checkbox-background: $dark-background,
+  checkbox-text-color: $dark-text,
+  chip-background: $dark-background,
+  chip-text-color: $dark-text,
+  content-background: $dark-background,
+  content-text-color: $dark-text,
+  datetime-background: $dark-background,
+  datetime-text-color: $dark-text,
+  fab-background: $dark-background,
+  fab-text-color: $dark-text,
+  grid-background: $dark-background,
+  grid-text-color: $dark-text,
+  header-background: $dark-background,
+  infinite-scroll-background: $dark-background,
+  infinite-scroll-text-color: $dark-text,
+  input-background: $dark-background,
+  input-text-color: $dark-text,
+  item-background: $dark-background,
+  item-text-color: $dark-text,
+  item-lines: none,
+  item-border: none,
+  item-border-top: none,
+  item-border-bottom: none,
+  label-text-color: $dark-text,
+  list-background: $dark-background,
+  list-text-color: $dark-text,
+  loading-background: $dark-background,
+  loading-text-color: $dark-text,
+  menu-background: $dark-background,
+  menu-text-color: $dark-text,
+  modal-background: $dark-background,
+  modal-background-color: $dark-background,
+  modal-text-color: $dark-text,
+  nav-background: $dark-background,
+  nav-text-color: $dark-text,
+  popover-background: $dark-background,
+  popover-text-color: $dark-text,
+  progress-bar-background: $dark-background,
+  progress-bar-text-color: $dark-text,
+  radio-background: $dark-background,
+  radio-text-color: $dark-text,
+  range-background: $dark-background,
+  range-text-color: $dark-text,
+  refresher-icon-color: #d3d7e4,
+  refresher-spinner-color: #d3d7e4,
+  refresher-text-color: #d3d7e4,
+  reorder-background: $dark-background,
+  reorder-text-color: $dark-text,
+  router-background: $dark-background,
+  router-text-color: $dark-text,
+  searchbar-background: $dark-background,
+  searchbar-text-color: $dark-text,
+  segment-background: $dark-background,
+  segment-button-active-background: $itesm-color,
+  segment-button-active-text-color: $dark-text,
+  segment-text-color: $dark-text,
+  select-background: $dark-background,
+  select-background-color: $dark-background,
+  select-option-background-color: $dark-background,
+  select-option-text-color: $light-text,
+  select-text-color: $dark-text,
+  skeleton-background: $dark-background,
+  skeleton-text-color: $dark-text,
+  spinner-background: $dark-background,
+  spinner-text-color: $dark-text,
+  tab-bar-active-background: $itesm-color,
+  tab-bar-active-text-color: $dark-text,
+  tab-bar-background: $dark-background,
+  tab-bar-text-color: $dark-text,
+  tabs-background: $dark-background,
+  tabs-text-color: $dark-text,
+  toast-background: $dark-background,
+  toast-text-color: $dark-text,
+  toggle-background: $dark-background,
+  toggle-text-color: $dark-text,
+  toolbar-background: $dark-background,
+  toolbar-text-color: $dark-text,
+  typography-background: $dark-background,
+  typography-text-color: $dark-text,
+  text-color: $dark-text,
+);
+
+// Mapa de variables para modo light
+$light-mode: (
+  accordion-background: $light-background,
+  accordion-text-color: $light-text,
+  action-sheet-background: $light-background,
+  action-sheet-text-color: $light-text,
+  alert-background: $light-background,
+  alert-radio-label-background: $light-background,
+  alert-radio-label-selected-text-color: $dark-text,
+  alert-radio-label-text-color: $light-text,
+  alert-text-color: $light-text,
+  alert-wrapper-background: $light-background,
+  alert-wrapper-text-color: $light-text,
+  background-color: $light-background,
+  badge-background: $light-background,
+  badge-text-color: $light-text,
+  button-background: lighten($itesm-color, 30%),
+  button-text-color: $itesm-color,
+  card-background: $light-background,
+  card-text-color: $light-text,
+  checkbox-background: $light-background,
+  checkbox-text-color: $light-text,
+  chip-background: $light-background,
+  chip-text-color: $light-text,
+  content-background: $light-background,
+  content-text-color: $light-text,
+  datetime-background: $light-background,
+  datetime-text-color: $light-text,
+  fab-background: $light-background,
+  fab-text-color: $light-text,
+  grid-background: $light-background,
+  grid-text-color: $light-text,
+  header-background: $light-background,
+  infinite-scroll-background: $light-background,
+  infinite-scroll-text-color: $light-text,
+  input-background: $light-background,
+  input-text-color: $light-text,
+  item-background: $light-background,
+  item-text-color: $light-text,
+  item-lines: none,
+  item-border: none,
+  item-border-top: none,
+  item-border-bottom: none,
+  label-text-color: $light-text,
+  list-background: $light-background,
+  list-text-color: $light-text,
+  loading-background: $light-background,
+  loading-text-color: $light-text,
+  menu-background: $light-background,
+  menu-text-color: $light-text,
+  modal-background: $light-background,
+  modal-background-color: $light-background,
+  modal-text-color: $light-text,
+  nav-background: $light-background,
+  nav-text-color: $light-text,
+  popover-background: $light-background,
+  popover-text-color: $light-text,
+  progress-bar-background: $light-background,
+  progress-bar-text-color: $light-text,
+  radio-background: $light-background,
+  radio-text-color: $light-text,
+  range-background: $light-background,
+  range-text-color: $light-text,
+  refresher-icon-color: #1f222e,
+  refresher-spinner-color: #1f222e,
+  refresher-text-color: #1f222e,
+  reorder-background: $light-background,
+  reorder-text-color: $light-text,
+  router-background: $light-background,
+  router-text-color: $light-text,
+  searchbar-background: $light-background,
+  searchbar-text-color: $light-text,
+  segment-background: $light-background,
+  segment-button-active-background: lighten($itesm-color, 30%),
+  segment-button-active-text-color: $itesm-color,
+  segment-text-color: $light-text,
+  select-background: $light-background,
+  select-background-color: $light-background,
+  select-option-background-color: $light-background,
+  select-option-text-color: $dark-text,
+  select-text-color: $light-text,
+  skeleton-background: $light-background,
+  skeleton-text-color: $light-text,
+  spinner-background: $light-background,
+  spinner-text-color: $light-text,
+  tab-bar-active-background: lighten($itesm-color, 30%),
+  tab-bar-active-text-color: $itesm-color,
+  tab-bar-background: $light-background,
+  tab-bar-text-color: $light-text,
+  tabs-background: $light-background,
+  tabs-text-color: $light-text,
+  toast-background: $light-background,
+  toast-text-color: $light-text,
+  toggle-background: $light-background,
+  toggle-text-color: $light-text,
+  toolbar-background: $light-background,
+  toolbar-text-color: $light-text,
+  typography-background: $light-background,
+  typography-text-color: $light-text,
+  text-color: $light-text,
+);
+
+// Mixin para aplicar estilos
+@mixin apply-mode($mode) {
+  $mode-vars: map-merge(
+    $mode,
+    (
+      item-background: map-get($mode, select-background-color),
+      item-text-color: map-get($mode, select-text-color),
+      list-background: map-get($mode, select-background-color),
+      list-text-color: map-get($mode, select-text-color),
+      content-background: map-get($mode, select-background-color),
+      content-text-color: map-get($mode, select-text-color),
+      header-background: map-get($mode, header-background),
+      alert-radio-label-background: map-get($mode, alert-radio-label-background),
+      alert-radio-label-text-color: map-get($mode, alert-radio-label-text-color),
+      alert-radio-label-selected-text-color:
+        map-get($mode, alert-radio-label-selected-text-color),
+      text-color: map-get($mode, text-color),
+    )
+  );
+
+  @each $property, $value in $mode-vars {
+    --ion-#{$property}: #{$value};
+  }
+}
+
+// Configuración para modo dark
+// [theme="dark"] {
+//   @include apply-mode($dark-mode);
+
+//   ion-header {
+//     --ion-background-color: var(--toolbar-background-color);
+//   }
+//   ion-content,
+//   ion-item,
+//   ion-label,
+//   ion-text,
+//   ion-title,
+//   ion-toolbar,
+//   ion-button,
+//   ion-card,
+//   ion-card-title,
+//   ion-card-subtitle,
+//   ion-card-content {
+//     color: var(--ion-text-color);
+//   }
+
+//   ion-refresher-content {
+//     --ion-color-base: var(--ion-text-color)
+//     ion-icon {
+//       color: var(--ion-text-color)
+//     }
+//     .spinner-circles {
+//       --color: var(--ion-text-color)
+//     }
+//     .refresher-refreshing-text {
+//       color: var(--ion-text-color)
+//     }
+//   }
+
+//   ion-item {
+//     .dark-mode-icon {
+//       color: var($dark-text);
+//     }
+//   }
+
+//   .alert-radio-label {
+//     background-color: var(--ion-alert-radio-label-background);
+//     color: var(--ion-alert-radio-label-text-color);
+//   }
+
+//   .alert-radio-label.sc-ion-alert-md-selected,
+//   .alert-radio-label.sc-ion-alert-md-selected:active,
+//   .alert-radio-label.sc-ion-alert-md-selected:focus,
+//   .alert-radio-label.sc-ion-alert-md-selected:hover {
+//     color: var(--ion-alert-radio-label-selected-text-color);
+//   }
+
+//   .weekview-allday-table {
+//     border-bottom: none !important;
+//   }
+
+//   .weekview-allday-label {
+//     border-left: none !important;
+//   }
+
+//   .monthview-current {
+//     background-color: $itesm-color;
+//   }
+
+//   --light-background1: var(--dark-background1);
+//   --light-text: var(--dark-text);
+// }
+
+// // Configuración para modo light
+// [theme="light"] {
+//   @include apply-mode($light-mode);
+
+//   ion-header {
+//     --ion-background-color: var(--toolbar-background-color);
+//   }
+//   ion-content,
+//   ion-toolbar,
+//   ion-item,
+//   ion-label,
+//   ion-text,
+//   ion-title,
+//   ion-button,
+//   ion-card,
+//   ion-card-title,
+//   ion-card-subtitle,
+//   ion-card-content {
+//     color: var($light-text);
+//   }
+
+//   ion-refresher-content {
+//     --ion-color-base: var(--ion-refresher-color-light);
+//     ion-icon {
+//       color: var(--ion-refresher-color-light);
+//     }
+//     .spinner-circles {
+//       --color: var(--ion-refresher-color-light);
+//     }
+//     .refresher-refreshing-text {
+//       color: var(--ion-refresher-color-light);
+//     }
+//   }
+
+//   .alert-radio-label {
+//     background-color: var(--ion-alert-radio-label-background);
+//     color: var(--ion-alert-radio-label-text-color);
+//   }
+
+//   .monthview-current {
+//     background-color: $itesm-color;
+//   }
+
+//   .alert-radio-label.sc-ion-alert-md-selected,
+//   .alert-radio-label.sc-ion-alert-md-selected:active,
+//   .alert-radio-label.sc-ion-alert-md-selected:focus,
+//   .alert-radio-label.sc-ion-alert-md-selected:hover {
+//     color: var(--ion-alert-radio-label-selected-text-color);
+//   }
+// }
+
+// Estilos para iOS
+// :root.ios {
+//   [theme="dark"] {
+//     --ion-background-color: #{$dark-background};
+//     --ion-toolbar-background: var(--ion-background-color);
+//     --ion-item-background: #{$dark-background};
+//     --ion-text-color: #{$dark-text};
+
+//     .alert-wrapper.sc-ion-alert-ios {
+//       background-color: var(--ion-alert-background, $dark-background);
+//       color: var(--ion-alert-text-color, $dark-text);
+//     }
+
+//     .alert-radio-label.sc-ion-alert-ios {
+//       color: var(--ion-alert-radio-label-text-color, $dark-text);
+//     }
+
+//     .alert-radio-icon.sc-ion-alert-ios {
+//       border-color: var(--ion-alert-radio-border-color, $dark-text);
+
+//       &[aria-checked="true"] {
+//         border-color: var(
+//           --ion-alert-radio-checked-border-color,
+//           $itesm-color
+//         );
+
+//         .alert-radio-inner.sc-ion-alert-ios {
+//           background-color: var(
+//             --ion-alert-radio-checked-background,
+//             $itesm-color
+//           );
+//         }
+//       }
+//     }
+
+//     .alert-button-inner.sc-ion-alert-ios {
+//       color: var(--ion-alert-button-text-color, $dark-text);
+//       background-color: var(
+//         --ion-alert-radio-checked-background,
+//         $dark-background
+//       );
+//     }
+//   }
+
+//   [theme="light"] {
+//     --ion-background-color: #{$light-background};
+//     --ion-toolbar-background: var(--ion-background-color);
+//     --ion-item-background: #{$light-background};
+//     --ion-text-color: #{$light-text};
+
+//     .alert-wrapper.sc-ion-alert-ios {
+//       background-color: var(--ion-alert-background, $light-background);
+//       color: var(--ion-alert-text-color, $light-text);
+//     }
+
+//     .alert-radio-label.sc-ion-alert-ios {
+//       color: var(--ion-alert-radio-label-text-color, $light-text);
+//     }
+
+//     .alert-radio-icon.sc-ion-alert-ios {
+//       border-color: var(--ion-alert-radio-border-color, $light-text);
+
+//       &[aria-checked="true"] {
+//         border-color: var(
+//           --ion-alert-radio-checked-border-color,
+//           $itesm-color
+//         );
+
+//         .alert-radio-inner.sc-ion-alert-ios {
+//           background-color: var(
+//             --ion-alert-radio-checked-background,
+//             $itesm-color
+//           );
+//         }
+//       }
+//     }
+
+//     .alert-button-inner.sc-ion-alert-ios {
+//       color: var(--ion-alert-button-text-color, $light-text);
+//       background-color: var(
+//         --ion-alert-radio-checked-background,
+//         $light-background
+//       );
+//     }
+//   }
+// }
+
+// :root.md {
+//   [theme="dark"] {
+//     --ion-background-color: #{$dark-background};
+//     --ion-toolbar-background: var(--ion-background-color);
+//     --ion-item-background: #{$dark-background};
+//     --ion-text-color: #{$dark-text};
+//   }
+
+//   [theme="light"] {
+//     --ion-background-color: #{$light-background};
+//     --ion-toolbar-background: var(--ion-background-color);
+//     --ion-item-background: #{$light-background};
+//     --ion-text-color: #{$light-text};
+//   }
+// }
+
+// // Fuente dinámica
+// html {
+//   --ion-dynamic-font: var(--ion-default-dynamic-font);
+// }

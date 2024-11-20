@@ -1,0 +1,421 @@
+@import "./calendario-variables.scss";
+@import "~@ionic/angular/css/ionic.bundle.css";
+
+//Desactivamdo estilos de ionic7calendar por default
+.monthview-current .calendar-event-icon,
+.monthview-primary-with-event .calendar-event-icon,
+.monthview-selected .calendar-event-icon {
+  display: flex;
+}
+
+.monthview-allday-table .calendar-event-icon,
+.monthview-secondary-with-event .calendar-event-icon {
+  display: none !important;
+}
+
+// Estilos generales de la tabla
+.table {
+  --bs-table-bg: var(--calendar-table-bg-light);
+  --bs-table-color: var(--calendar-table-text-light);
+  --bs-table-border-color: transparent;
+  --bs-table-hover-bg: rgba(var(--calendar-table-text-light-rgb), 0.075);
+  --bs-table-striped-bg: rgba(var(--calendar-table-text-light-rgb), 0.05);
+  --bs-table-active-bg: rgba(var(--calendar-table-text-light-rgb), 0.1);
+
+  width: 100%;
+  margin-bottom: 1rem;
+  vertical-align: top;
+  border: 0 !important;
+
+  &,
+  &.table-bordered,
+  thead,
+  tbody,
+  tfoot,
+  tr,
+  th,
+  td {
+    border: 0 !important;
+  }
+}
+
+// Estilos generales para los días del calendario
+.table td {
+  position: relative;
+  text-align: center;
+  font-weight: bold;
+  line-height: 3vh !important;
+}
+
+// Estilos para el ícono de fondo
+.table td .calendar-event-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3.1em;
+  z-index: -1;
+}
+
+.monthview-current .calendar-event-icon {
+  color: var(--itesm-color-1) !important;
+}
+
+.monthview-primary-with-event .calendar-event-icon {
+  color: var(--itesm-color) !important;
+}
+
+.monthview-selected .calendar-event-icon {
+  color: var(--itesm-color-5) !important;
+}
+
+.calendar-event-icon {
+  display: none;
+}
+
+.event-detail-container {
+  display: none;
+}
+
+.month-mode .event-detail-container {
+  display: none;
+}
+
+.day-calendar {
+  height: 100%;
+  width: 100%;
+}
+
+.viewport {
+  height: 400px;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.viewport-item {
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #ccc;
+}
+
+.calendar-mes {
+  display: block;
+}
+
+.absolute {
+  position: absolute;
+  width: 45vh;
+  height: 100vh;
+}
+
+.sticky{
+  position: sticky;
+}
+
+//Deep
+
+::ng-deep {
+  .monthview-primary-with-event,
+  .monthview-current,
+  .monthview-secondary-with-event,
+  .monthview-event,
+  .monthview-selected,
+  .monthview-allday-table {
+    background: none !important;
+    border: none !important;
+    color: inherit !important;
+  }
+}
+
+::ng-deep {
+  .text-muted {
+    color: #999 !important;
+  }
+
+  td:first-child ion-icon {
+    color: black !important;
+  }
+}
+
+// Estilos para el modo oscuro
+:root.dark-mode .table {
+  --bs-table-bg: var(--calendar-table-bg-dark);
+  --bs-table-color: var(--calendar-table-text-dark);
+  --bs-table-border-color: transparent;
+  --bs-table-hover-bg: rgba(var(--calendar-table-text-dark-rgb), 0.075);
+  --bs-table-striped-bg: rgba(var(--calendar-table-text-dark-rgb), 0.05);
+  --bs-table-active-bg: rgba(var(--calendar-table-text-dark-rgb), 0.1);
+
+  &,
+  &.table-bordered,
+  thead,
+  tbody,
+  tfoot,
+  tr,
+  th,
+  td {
+    border: 0 !important;
+  }
+}
+
+// Estilos específicos para los eventos en el modo oscuro y modo month
+:root.dark-mode .month-mode .table .event {
+  background-color: transparent;
+  color: var(--ion-color-secondary-contrast);
+}
+
+:host {
+  > app-mitec-header {
+    ion-title {
+      color: var(--ion-text-color);
+    }
+  }
+
+  &[theme="dark"] {
+    > app-mitec-header {
+      ion-title {
+        color: $light-text;
+      }
+    }
+  }
+}
+
+::ng-deep .event-detail-container {
+  border-top: none !important;
+}
+
+::ng-deep .dayview-allday-label {
+  border-top: none !important;
+  border-left: none !important;
+}
+
+::ng-deep .weekview-allday-table {
+  border-top: none !important;
+  border-left: none !important;
+}
+
+::ng-deep .dayview-normal-event-container {
+  margin-top: 70px;
+}
+
+::ng-deep .table > :not(caption) > * > * {
+  padding: 0.1rem 0.1rem;
+}
+
+.bks {
+  background-color: var(--light-background-selected) !important;
+}
+
+.calendar .calendar-event-inner {
+  overflow: hidden;
+  // background-color: var(--light-background-selected) !important;
+  color: #000;
+  height: 100%;
+  width: 90% !important;
+  padding: 2px;
+  line-height: 15px;
+  text-align: initial;
+  animation: aparecer 0.5s ease forwards;
+  border-left: 8px solid white;
+  float: inline-end !important;
+  box-shadow: 0px 0px 52px -18px rgba(0, 0, 0, 0.75) !important;
+  border-radius: 10px !important;
+
+  // Modo oscuro
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--itesm-color-4);
+    color: var(--light-text);
+  }
+}
+
+::ng-deep ion-item {
+  --border-style: none !important;
+  --inner-padding-end: 0px;
+  --inner-border-width: 0px;
+}
+
+::ng-deep .dayview-allday-table {
+  border-bottom: none !important;
+}
+
+::ng-deep ios .list-ios .list-lines-none list-ios-lines-none {
+  border-bottom: none !important;
+}
+
+ .header-ios ion-toolbar:last-of-type {
+  --border-width: 0px;
+}
+
+ion-table{
+  animation: aparecer 0.5s ease forwards;
+}
+
+ion-col {
+  display: inline-block;
+  width: auto;
+}
+
+ion-title {
+  width: auto;
+}
+
+ion-card {
+  border-radius: 10px;
+  box-shadow: -5px 0px 1px 0px rgb(227 0 255);
+  //background-color: $itesm-color-white;
+  border: 2px solid $itesm-color;
+  margin-top: 20px;
+  animation: aparecer 0.5s ease forwards;
+  color: #000;
+}
+
+ion-card-title {
+  padding: 10px;
+}
+
+ion-card-content {
+  //background-color: $itesm-color-white;
+  color: $light-text;
+}
+
+ion-content {
+  height: 100vh;
+}
+
+ion-buttons {
+  animation: aparecer 0.5s ease forwards;
+}
+
+ion-select-option {
+  display: flex;
+  align-items: center;
+
+  ion-icon {
+    margin-right: 8px;
+  }
+}
+
+ion-item {
+  animation: aparecer 0.5s ease forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-col {
+  display: flex;
+  // justify-content: center;
+  // align-items: center;
+
+  &.size-6 {
+    justify-content: flex-start;
+  }
+
+  &.ion-text-right {
+    justify-content: flex-end;
+  }
+}
+
+ion-select {
+  display: contents;
+  text-align: center;
+  justify-content: center;
+  min-width: 95px !important;
+
+}
+
+ion-label {
+  display: flex;
+
+}
+
+ion-note{
+  color: $itesm-color ;
+  font-weight: 500;
+}
+
+.animacion {
+  animation: aparecer 0.5s ease forwards;
+}
+
+.calendar-frame {
+  border-radius: 25px;
+  box-shadow: 0px -1px 1px 1px rgb(0, 255, 250);
+  border: 0.5px solid $itesm-color;
+  margin-top: 20px;
+  animation: aparecer 0.7s ease forwards;
+
+}
+
+.select-placeholder {
+  opacity: inherit !important;
+  }
+
+
+.input-label-placement-floating.sc-ion-input-ios-h input.sc-ion-input-ios {
+    opacity: 100 !important;
+    padding: 20px !important;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 2;
+    transform: translateY(0);
+  }
+}
+.calendar-date-cell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-indicator, .today-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.7em; // Ajusta este valor para cambiar el tamaño del icono
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.event-indicator {
+  color: var(--ion-color-primary);
+}
+
+.today-indicator {
+  color: var(--ion-color-success);
+  opacity: 0.5;
+}
+
+.date-number {
+  position: relative;
+  z-index: 2;
+  font-weight: bold;
+}
+
+// Estilo para el día actual
+:host ::ng-deep .monthview-current {
+  .calendar-date-cell {
+    background-color: var(--ion-color-success-light);
+    border-radius: 50%;
+  }
+
+  .date-number {
+    color: var(--ion-color-success);
+    font-weight: bold;
+  }
+
+  .event-indicator {
+    color: var(--ion-color-success);
+    opacity: 0.5;
+  }
+}
